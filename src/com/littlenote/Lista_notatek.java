@@ -189,13 +189,30 @@ Log.d("Little", "6");
     	final AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         switch(item.getItemId()) {
         case PODGLAD_ID:
+        	///////////////////////////////////////
         	c = mNotesCursor;
-        	Log.d("LittleNote", "Pozycja klikniêta: " + String.valueOf(info.position));
-        	c.moveToPosition(info.position);
-            i = new Intent(this, Podglad.class);
-            i.putExtra(NotesDbAdapter.KEY_BODY, c.getString(
-            c.getColumnIndexOrThrow(NotesDbAdapter.KEY_BODY)));
-            startActivity(i);
+            c.moveToPosition(info.position);
+        	if(mNotesCursor.getInt(mNotesCursor.getColumnIndex(mDbHelper.KEY_Haslo))==0)
+        	{
+        		Intent i = new Intent(this, Podglad.class);
+        		i.putExtra(NotesDbAdapter.KEY_BODY, c.getString(
+        	            c.getColumnIndexOrThrow(NotesDbAdapter.KEY_BODY)));
+        		startActivity(i);
+        	}
+        	
+        	else{
+        		
+        			Intent i2 = new Intent(this, Haslo.class);
+        			i2.putExtra(NotesDbAdapter.KEY_ROWID, info.id);
+        			i2.putExtra("task", 2);
+        			i2.putExtra(NotesDbAdapter.KEY_BODY, c.getString(
+            	            c.getColumnIndexOrThrow(NotesDbAdapter.KEY_BODY)));
+        			startActivity(i2);
+        		}
+        	
+        	
+        ///////////////////////////////////
+        	
         	return true;
         case EDYCJA_ID:
         	c = mNotesCursor;

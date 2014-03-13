@@ -53,6 +53,12 @@ public class Haslo extends Activity {
 		        mDbHelper.open();
 				mDbHelper.deleteNote(extras.getLong("_id"));
 			}
+			else if(extras.getInt("task")==2){
+				Log.d("Little", "Podglad");
+				Intent i = new Intent(this, Podglad.class);
+        		i.putExtra(NotesDbAdapter.KEY_BODY, extras.getString(NotesDbAdapter.KEY_BODY));
+        		startActivity(i);
+			}
 			}
     		finish();
 		}

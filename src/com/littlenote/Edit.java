@@ -130,7 +130,10 @@ public class Edit extends Activity {
 	        	Log.d("Little", "Nowa notatka");
 	        	String title = tyt;
 	        	String body = mBodyText.getText().toString();
-	        	create_new_note(title,body);
+	        	int blokada = 0;
+	        	if(preferences.getBoolean("domyslne_haslo", false))
+	        	blokada = 1;	
+	        	create_new_note(title,body,blokada);
 	        }
 	        else{
             if (mRowId != null) {
@@ -160,7 +163,7 @@ public class Edit extends Activity {
 	}
      
 	}
-	private void create_new_note(String title, String body) {
+	private void create_new_note(String title, String body, int blokada) {
 		calendar = Calendar.getInstance(); 
     	if(calendar.get(Calendar.MINUTE)<10)min="0"+String.valueOf(calendar.get(Calendar.MINUTE)); 
     	else min=String.valueOf(calendar.get(Calendar.MINUTE));
@@ -171,7 +174,7 @@ public class Edit extends Activity {
     	if(calendar.get(Calendar.DAY_OF_MONTH)<10)day="0"+String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)); 
     	else day=String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         String data = day+"." + msc+"."+String.valueOf(calendar.get(Calendar.YEAR))+"  "+h+":"+min;
-        mDbHelper.createNote(title, body, data, data,0);
+        mDbHelper.createNote(title, body, data, data,blokada);
 	}
 	
 }
