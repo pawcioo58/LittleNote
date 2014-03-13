@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ public class Haslo extends Activity {
 	private SharedPreferences preferences;
 	private static final String MOTYW = "motyw";
 	private static final String HAS£O_GLOWNE = "haslo";
+    private NotesDbAdapter mDbHelper;
     Bundle extras;
 	 EditText haslo1;
 	@Override
@@ -36,10 +38,23 @@ public class Haslo extends Activity {
 	public void Ok(View target){
 		if(haslo1.getText().toString().matches(preferences.getString(HAS£O_GLOWNE, "0000")))
 		{
+			if(extras!=null){
+			if(extras.getInt("task")==1){
+				Log.d("Little", "Edycja");
 			Intent i = new Intent(this, Edit.class);
     		i.putExtra(NotesDbAdapter.KEY_ROWID, extras.getLong("_id",0));
     		i.putExtra("Edycja", 1);
     		startActivity(i);
+
+			}
+			else if(extras.getInt("task")==0){
+				Log.d("Little", "Usuwanie");
+				mDbHelper = new NotesDbAdapter(this);
+		        mDbHelper.open();
+				mDbHelper.deleteNote(extras.getLong("_id"));
+			}
+			}
+    		finish();
 		}
 		else
 			Toast.makeText(getApplicationContext(), "Has³o nieprawid³owe!", Toast.LENGTH_SHORT).show();

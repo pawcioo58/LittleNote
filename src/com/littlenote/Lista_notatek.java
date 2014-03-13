@@ -47,6 +47,7 @@ boolean edycja=false;
     private NotesDbAdapter mDbHelper;
     private Cursor mNotesCursor;
     Cursor c;
+    long a;
     Intent i;
     TextView title;
     Button add, add2;
@@ -185,7 +186,7 @@ Log.d("Little", "6");
     @SuppressWarnings("static-access")
 	@Override
     public boolean onContextItemSelected(MenuItem item) {
-    	AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+    	final AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         switch(item.getItemId()) {
         case PODGLAD_ID:
         	c = mNotesCursor;
@@ -208,23 +209,25 @@ Log.d("Little", "6");
         	}
         	
         	else{
+        		
         			Intent i2 = new Intent(this, Haslo.class);
         			i2.putExtra(NotesDbAdapter.KEY_ROWID, info.id);
+        			i2.putExtra("task", 1);
         			startActivity(i2);
         		}
             
             return true;
         case BLOKADA_ID:
-        c = mNotesCursor;
-        c.moveToPosition(info.position);
-        if(c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo))==0){
-        	Log.d("LittleNote", "Dodano Has³o"+c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo)));
-        	mDbHelper.Add_haslo(info.id);
-        }
-        else{
-        	Log.d("LittleNote", "Usuniêto Has³o"+c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo)));
-        	mDbHelper.Del_haslo(info.id);
-        }
+        	c = mNotesCursor;
+            c.moveToPosition(info.position);
+            if(c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo))==0){
+            	Log.d("LittleNote", "Dodano Has³o"+c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo)));
+            	mDbHelper.Add_haslo(info.id);
+            }
+            else{
+            	Log.d("LittleNote", "Usuniêto Has³o"+c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo)));
+            	mDbHelper.Del_haslo(info.id);
+            }
         fillData();
         	return true;
         case DUPLIKUJ_ID:
@@ -232,12 +235,39 @@ Log.d("Little", "6");
         	c.moveToPosition(info.position);
         	String title = c.getString(c.getColumnIndex(mDbHelper.KEY_TITLE));
         	String body = c.getString(c.getColumnIndex(mDbHelper.KEY_BODY));
-        	create_new_note(title,body);
+        	int blokada = c.getInt(c.getColumnIndex(mDbHelper.KEY_Haslo));
+        	create_new_note(title,body, blokada);
         	fillData();
         	return true;
             case USUN_ID:
-                mDbHelper.deleteNote(info.id);
-                fillData();
+                new AlertDialog.Builder(this)
+                .setTitle("Usuñ")
+                .setMessage("Jesteœ pewien ¿e chcesz usun¹æ notatkê?\nTej operacji nie da siê cofn¹æ!")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) { 
+                    	c = mNotesCursor;
+                        c.moveToPosition(info.position);
+                        if(c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo))==0){
+                        	mDbHelper.deleteNote(info.id);
+                        }
+                        else{
+                        	Intent i = new Intent(Lista_notatek.this, Haslo.class);
+                    		i.putExtra(NotesDbAdapter.KEY_ROWID, info.id);
+                    		i.putExtra("task", 0);
+                    		startActivity(i);
+                        }
+                    	
+                        fillData();
+                        // continue with delete
+                    }
+                 })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) { 
+                        // do nothing
+                    }
+                 })
+               // .setIcon(R.drawable.ic_dialog_alert)
+                 .show();
                 return true;
             case WLASCIWOSCI_ID:
             	Intent i = new Intent(Lista_notatek.this, Wlasciwosci.class);
@@ -254,7 +284,18 @@ Log.d("Little", "6");
         super.onListItemClick(l, v, position, id);
         
         if(edycja){
-        	 mDbHelper.deleteNote(id);
+             c = mNotesCursor;
+             c.moveToPosition(position);
+             if(c.getInt(c.getColumnIndex(NotesDbAdapter.KEY_Haslo))==0){
+             	mDbHelper.deleteNote(id);
+             }
+             else{
+             	Intent i = new Intent(Lista_notatek.this, Haslo.class);
+         		i.putExtra(NotesDbAdapter.KEY_ROWID, id);
+         		i.putExtra("task", 0);
+         		startActivity(i);
+             }
+         	
              fillData();
         }
         else{
@@ -271,6 +312,7 @@ Log.d("Little", "6");
         	else{
         			Intent i2 = new Intent(this, Haslo.class);
         			i2.putExtra(NotesDbAdapter.KEY_ROWID, id);
+        			i2.putExtra("task", 1);
         			startActivity(i2);
         		}
         }
@@ -278,7 +320,7 @@ Log.d("Little", "6");
 
     
 
-	private void create_new_note(String title, String body) {
+	private void create_new_note(String title, String body, int blokada) {
 		calendar = Calendar.getInstance(); 
     	if(calendar.get(Calendar.MINUTE)<10)min="0"+String.valueOf(calendar.get(Calendar.MINUTE)); 
     	else min=String.valueOf(calendar.get(Calendar.MINUTE));
@@ -289,6 +331,12 @@ Log.d("Little", "6");
     	if(calendar.get(Calendar.DAY_OF_MONTH)<10)day="0"+String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)); 
     	else day=String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         String data = day+"." + msc+"."+String.valueOf(calendar.get(Calendar.YEAR))+"  "+h+":"+min;
-        mDbHelper.createNote(title, body, data, data,0);
+        mDbHelper.createNote(title, body, data, data,blokada);
+	}
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+fillData();
+		super.onResume();
 	}
 }

@@ -60,6 +60,7 @@ TextView czcionka, kursor, motyw;
 		return true;
 	}
 	public void off(View target){
+   	 	zapisz();
 		finish();
 	}
 	public void zmiana_motyw(View target){
@@ -148,6 +149,9 @@ public void odzczyt(){
 	motyw.setText(array_motyw[preferences.getInt(MOTYW, 0)]);
 	zabezpieczenie_haslo.setChecked(preferences.getBoolean(DOMYSLNE_ZABEZPIECZENIE, false));
 	edit_light.setChecked(preferences.getBoolean(Edytor_light, false));
+	motyw_position=preferences.getInt(MOTYW, 0);
+	pozycia_kursora_position=preferences.getInt(POZYCJA_KURSORA, 0);
+	rozmiar_czcionki_position=preferences.getInt(ROZMIAR_CZCIONKI, 0);
 }
 @Override
 public boolean onKeyDown(int keyCode, KeyEvent event)  
