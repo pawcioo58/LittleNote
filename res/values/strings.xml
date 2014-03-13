@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LittleNote</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="no_notes">Brak notatek</string>
+    <string name="title_activity_edit">Edytor</string>
+    <string name="title">Tytuł</string>
+    <string name="text">Text</string>
+    <string name="Button_add">Dodaj</string>
+    <string name="edit_note">Edycja Notatki</string>
+    <string name="menu_insert">Dodaj</string>
+    <string name="menu_delete">Usuń</string>
+    <string name="title_activity_podglad">Podgląd</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_ustawienia">Ustawienia</string>
+    <string name="cofanie_ikona">«</string>
+
+    <string-array name="Czcionka">
+        <item>bardzo mała</item>
+        <item>mała</item>
+        <item>średnia</item>
+        <item>duża</item>
+    </string-array>
+    <string-array name="Kursor">
+        <item>początek</item>
+        <item>koniec</item>
+    </string-array>
+    <string-array name="Motyw">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+
+    <string name="zapisz">zapisz</string>
+    <string name="title_activity_nowe_haslo">Nowe hasło</string>
+    <string name="title_activity_zmiana__hasla">Zmiana Hasła</string>
+    <string name="title_activity_haslo">Hasło</string>
+    <string name="Plus">+</string>
+    <string name="czcionka_rozmiar">Rozmiar czcionki</string>
+    <string name="value_czcionka">mała</string>
+    <string name="pozycja_kursora">Pozycja kursora w edytorze</string>
+    <string name="Koniec">Koniec</string>
+    <string name="haslo_glowne">Hasło główne</string>
+    <string name="haslo_value">Służy do zabezpieczenia notatek</string>
+    <string name="domyslne_zab">Domyślne zabezpieczanie</string>
+    <string name="domysl_zab_value">Nowe notatki będą zabezpieczane</string>
+    <string name="export">Export bazy danych</string>
+    <string name="export_value">Tworzy kopię notatek</string>
+    <string name="import2">Import bazy danych</string>
+    <string name="import_value">Przywraca kopię notatek</string>
+    <string name="motyw">Motyw</string>
+    <string name="motyw_value">Dark</string>
+    <string name="light_theme">Light theme dla edytora</string>
+    <string name="light_theme_value">Ustawia jasne tło dla edytora niezależnie od tematu</string>
+    <string name="title_activity_oprogramie">O programie</string>
+    <string name="title_activity_wlasciwosci">Właściwości</string>
+    <string name="tytul">"Tytuł: "</string>
+    <string name="liczba_linii">"Liczba linii: "</string>
+    <string name="liczba_liter">"Liczba liter: "</string>
+    <string name="data_add">"Data utworzenia: "</string>
+    <string name="data_edit">"Data edycji: "</string>
+    <string name="blokada">"Blokada: "</string>
+
+</resources>

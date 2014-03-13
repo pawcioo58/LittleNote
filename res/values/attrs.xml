@@ -1,0 +1,6 @@
+
+    <resources>
+<declare-styleable name="RangeEditText">
+    <attr name="Belka_kolor" format="color|reference" />
+    <attr name="list_text_kolor" format="color|reference" />
+    </declare-styleable>    </resources>

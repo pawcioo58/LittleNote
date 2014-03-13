@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.littlenote"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Light_style" >
+        <activity
+            android:name="com.littlenote.Lista_notatek"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.littlenote.Edit"
+            android:label="@string/title_activity_edit" >
+        </activity>
+        <activity
+            android:name="com.littlenote.Podglad"
+            android:label="@string/title_activity_podglad" >
+        </activity>
+        <activity
+            android:name="com.littlenote.Ustawienia"
+            android:label="@string/title_activity_ustawienia" >
+        </activity>
+        <activity
+            android:name="com.littlenote.Nowe_haslo"
+            android:label="@string/title_activity_nowe_haslo" android:theme="@android:style/Theme.Holo.Dialog">
+        </activity>
+        <activity
+            android:name="com.littlenote.Zmiana_Hasla"
+            android:label="@string/title_activity_zmiana__hasla" android:theme="@android:style/Theme.Holo.Dialog">
+        </activity>
+        <activity
+            android:name="com.littlenote.Haslo"
+            android:label="@string/title_activity_haslo" android:theme="@android:style/Theme.Holo.Dialog">
+        </activity>
+        <activity
+            android:name="com.littlenote.Oprogramie"
+            android:label="@string/title_activity_oprogramie" android:theme="@android:style/Theme.Holo.Dialog">
+        </activity>
+        <activity
+            android:name="com.littlenote.Wlasciwosci"
+            android:label="@string/title_activity_wlasciwosci" android:theme="@android:style/Theme.Holo.Dialog">
+        </activity>
+    </application>
+
+</manifest>

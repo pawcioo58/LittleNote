@@ -1,0 +1,18 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="Dark_style" parent="@style/Dark_Theme"></style>
+
+
+    <style name="Light_style" parent="@style/Light_Theme"></style>
+    <style name="Mieszany_style" parent="@android:style/Theme.Holo">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <color name="bialy">#fff</color>
+    <color name="czarny">#000</color>
+    <color name="Belka">#0c5c7d</color>
+
+</resources>

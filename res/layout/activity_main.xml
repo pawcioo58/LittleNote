@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lista_notatek" >
+
+   <LinearLayout
+            android:id="@+id/belka"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="?attr/Belka_kolor"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textColor="@color/bialy"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/Button2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="#00ffffff"
+                android:maxHeight="10dp"
+                android:maxWidth="10dp"
+                android:padding="5dp"
+                android:scaleType="center"
+                android:text="@string/Plus"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/Button_add"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/android:list"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/button1"
+        android:layout_below="@+id/belka"
+        android:dividerHeight="1sp"
+        android:drawSelectorOnTop="true" />
+
+  	<TextView
+  	    android:id="@+id/android:empty"
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="wrap_content"
+  	    android:layout_centerInParent="true"
+  	    android:text="@string/no_notes"
+  	    android:textColor="@color/bialy" />
+
+</RelativeLayout>

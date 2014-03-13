@@ -1,0 +1,301 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".Ustawienia" >
+
+    <LinearLayout
+        android:id="@+id/belka"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="?attr/Belka_kolor"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:onClick="off"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/cofanie_ikona"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/bialy"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="off"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="@string/action_settings"
+            android:textColor="@color/bialy"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="#00ffffff"
+            android:maxHeight="10dp"
+            android:maxWidth="10dp"
+            android:padding="5dp"
+            android:scaleType="center"
+            android:text="@string/Plus"
+            android:textSize="28sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="czcionka"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/czcionka_rozmiar"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value_czcionka" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="kursor"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pozycja_kursora"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Koniec" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="haslo"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/haslo_glowne"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/haslo_value" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="domyslne_zabezpieczenie"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/domyslne_zab"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/domysl_zab_value" />
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="zmiana_motyw"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/export"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/export_value" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="zmiana_motyw"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import2"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import_value" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="zmiana_motyw"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/motyw"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/motyw_value" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listview_click"
+                android:clickable="true"
+                android:onClick="edytor_light"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/light_theme"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/light_theme_value" />
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

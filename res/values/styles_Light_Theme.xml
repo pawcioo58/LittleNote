@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+        <style name="Light_Theme" parent="@android:style/Theme.Holo.Light.NoActionBar">
+            <item name="android:buttonStyle">@style/button_add_note_light</item>
+			<item name="Belka_kolor">@color/Belka</item>
+			<item name="list_text_kolor">#000000</item>
+        </style>
+        
+        <style name="button_add_note_light" >
+            <item name="android:background">@color/Belka</item>
+            <item name="android:textColor">#ffffff</item>
+            <item name="android:gravity">center</item>
+        </style>
+
+    </resources>
