@@ -42,6 +42,7 @@
 
         <Button
             android:id="@+id/button1"
+            style="?android:attr/actionButtonStyle"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,6 +51,7 @@
 
         <Button
             android:id="@+id/button2"
+            style="?android:attr/actionButtonStyle"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
